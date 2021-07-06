@@ -90,6 +90,8 @@ git fetch origin ${FETCH_REMOTE_BRANCH}
 # Don't exit on non-zero return value
 set +e
 
+git diff FETCH_HEAD --stat --exit-code ${JS_COMMIT_PATH}
+
 JS_DIFF_RETVAL=$?
 if [ $JS_DIFF_RETVAL -eq 0 ]
 then
@@ -110,7 +112,6 @@ set -e
 set -x
 
 git add -f --all "$JS_AUTO_GENERATED_DIR"
-git add -f "$CCFILES_AUTO_GENERATED_DIR"
 git checkout -b "$COCOS_BRANCH"
 git commit -m "$COMMITTAG"
 

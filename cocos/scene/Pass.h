@@ -29,8 +29,8 @@
 #include "renderer/gfx-base/GFXBuffer.h"
 #include "renderer/gfx-base/GFXDef-common.h"
 #include "renderer/gfx-base/GFXDescriptorSet.h"
-#include "scene/Define.h"
 #include "renderer/pipeline/helper/SharedMemory.h"
+#include "scene/Define.h"
 
 namespace cc {
 namespace scene {
@@ -61,10 +61,10 @@ public:
     Pass &operator=(const Pass &) = delete;
     Pass &operator=(Pass &&) = delete;
 
-    void  initWithData(uint8_t *data);
-    void  update();
-    void  setState(gfx::BlendState *bs, gfx::DepthStencilState *ds, gfx::RasterizerState *rs, gfx::DescriptorSet *descriptorSet);
-    
+    void initWithData(uint8_t *data);
+    void update();
+    void setState(gfx::BlendState *bs, gfx::DepthStencilState *ds, gfx::RasterizerState *rs, gfx::DescriptorSet *descriptorSet);
+
     inline void setBatchingScheme(BatchingSchemes value) { _passLayout->batchingScheme = value; }
     inline void setBlendState(gfx::BlendState *blendState) { _blendState = blendState; }
     inline void setDepthStencilState(gfx::DepthStencilState *state) { _depthStencilState = state; }
